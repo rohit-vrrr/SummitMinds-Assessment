@@ -21,7 +21,7 @@
 -   Optional: Write unit tests for the code if time permits.
 -   Document the instructions to run and execute the code.
 
-## Instruction to run:
+## Instructions to run:
 **NPM Packages**
 ***express***
 ***dotenv***
