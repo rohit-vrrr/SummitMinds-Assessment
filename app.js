@@ -30,6 +30,16 @@ function searchByYear(data, year) {
   return foundData;
 }
 
+function searchByYearAndCategory(data, year, category) {
+  var foundData = [];
+  data.prizes.forEach((item) => {
+    if(item.year === year & item.category === category) {
+      foundData.push(item);
+    }
+  });
+  return foundData;
+}
+
 app.get('/searchbyfirstname/:fname', (req, res) => {
 
   const fname = _.lowerCase(req.params.fname);
@@ -44,6 +54,16 @@ app.get('/searchbyyear/:year', (req, res) => {
   const year = req.params.year;
 
   const showData = searchByYear(data, year);
+  res.send(showData);
+});
+
+// query string parameters
+app.get('/search/', (req, res) => {
+
+  const year = req.query.year;
+  const category = req.query.category;
+
+  const showData = searchByYearAndCategory(data, year, category);
   res.send(showData);
 });
 
