@@ -48,19 +48,19 @@ npm start
 npm test
 ```
 
-**Nobel Prize APIs:**
-To search a Nobel Prize winner by name
+**Nobel Prize APIs:**<br />
+To search a Nobel Prize winner by name<br />
 GET: <http://localhost:3000/searchbyfirstname/{fname}>
 
-To find out Nobel Prize winners in a year
+To find out Nobel Prize winners in a year<br />
 GET: <http://localhost:3000/searchbyyear/{year}>
 
-Search Nobel Prize winner based on the year and category
-Replace the year and category fields
+Search Nobel Prize winner based on the year and category<br />
+Replace the year and category fields<br />
 GET: <http://localhost:3000/search/?year=2018&category=physics>
 
-To retrieve all winners in alphabetical order along with year and category
+To retrieve all winners in alphabetical order along with year and category<br />
 GET: <http://localhost:3000/showall>
-
-
+<br />
+<br />
 **I thank SummitMinds for this opportunity**
