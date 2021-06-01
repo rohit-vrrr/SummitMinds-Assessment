@@ -1,0 +1,24 @@
+{
+  "name": "summitminds-assessment",
+  "version": "1.0.0",
+  "description": "**Given JSON Dataset of Nobel Prize winners, create a program which will load the information from the JSON file (see the link below) and allow a user to:**\r 1. Search a Nobel prize winner by name",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohit-vrrr/SummitMinds-Assessment.git"
+  },
+  "author": "Rohit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohit-vrrr/SummitMinds-Assessment/issues"
+  },
+  "homepage": "https://github.com/rohit-vrrr/SummitMinds-Assessment#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
