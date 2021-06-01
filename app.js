@@ -10,6 +10,7 @@ app.use(express.urlencoded({extended: true}));
 
 function searchByFirstName(data, fname) {
   var foundData = [];
+
   data.prizes.forEach((eachPrize) => {
     eachPrize.laureates.forEach((eachLaureates) => {
       if(_.lowerCase(eachLaureates.firstname) === fname) {
@@ -22,6 +23,7 @@ function searchByFirstName(data, fname) {
 
 function searchByYear(data, year) {
   var foundData = [];
+
   data.prizes.forEach((item) => {
     if(item.year === year) {
       foundData.push(item);
@@ -32,12 +34,36 @@ function searchByYear(data, year) {
 
 function searchByYearAndCategory(data, year, category) {
   var foundData = [];
+
   data.prizes.forEach((item) => {
     if(item.year === year & _.lowerCase(item.category) === category) {
       foundData.push(item);
     }
   });
   return foundData;
+}
+
+function showAll(data) {
+  var names = [];
+
+  data.prizes.forEach((item) => {
+    item.laureates.forEach((eachLaureates) => {
+      names.push(eachLaureates.firstname + " " + eachLaureates.surname);
+    })
+  });
+  names = names.sort();
+
+  for(var i=0; i<names.length; i++) {
+    data.prizes.forEach((item) => {
+      item.laureates.forEach((eachLaureates) => {
+        if(names[i] === (eachLaureates.firstname + " " + eachLaureates.surname)) {
+          names[i] = names[i] + ", " + item.year + ", " + item.category;
+        }
+      })
+    });
+  }
+
+  return names;
 }
 
 app.get('/searchbyfirstname/:fname', (req, res) => {
@@ -55,6 +81,7 @@ app.get('/searchbyyear/:year', (req, res) => {
 
   const showData = searchByYear(data, year);
   res.send(showData);
+
 });
 
 // query string parameters
@@ -65,6 +92,14 @@ app.get('/search/', (req, res) => {
 
   const showData = searchByYearAndCategory(data, year, category);
   res.send(showData);
+
+});
+
+app.get('/showall', (req, res) => {
+
+  const showData = showAll(data);
+  res.send(showData);
+
 });
 
 module.exports = app.listen(PORT, () => {
