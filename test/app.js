@@ -19,6 +19,16 @@ describe('Nobel Prize APIs', () => {
           done();
         });
     });
+
+    it("Should NOT return any task", (done) => {
+      chai.request(server)
+        .get("/searchbyfirstname/")
+        .end((err, res) => {
+          res.should.have.status(404);
+          done();
+        });
+    });
+
   });
 
   describe("Test GET route /searchbyyear/:year", () => {
