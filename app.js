@@ -33,7 +33,7 @@ function searchByYear(data, year) {
 function searchByYearAndCategory(data, year, category) {
   var foundData = [];
   data.prizes.forEach((item) => {
-    if(item.year === year & item.category === category) {
+    if(item.year === year & _.lowerCase(item.category) === category) {
       foundData.push(item);
     }
   });
@@ -61,7 +61,7 @@ app.get('/searchbyyear/:year', (req, res) => {
 app.get('/search/', (req, res) => {
 
   const year = req.query.year;
-  const category = req.query.category;
+  const category = _.lowerCase(req.query.category);
 
   const showData = searchByYearAndCategory(data, year, category);
   res.send(showData);
