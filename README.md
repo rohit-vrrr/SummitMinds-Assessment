@@ -20,3 +20,47 @@
 -   Check in the code in GitHub and send us the link to the repository.
 -   Optional: Write unit tests for the code if time permits.
 -   Document the instructions to run and execute the code.
+
+## Instruction to run:
+**NPM Packages**
+***express***
+***dotenv***
+***lodash***
+***nodemon***
+***mocha***
+***chai***
+
+**Steps:**
+1. Install the dependencies
+```javascript
+npm install
+```
+2. Optional: Create a ".env" file and give the PORT number to run the server on that port. (Default PORT: 3000)
+```javascript
+PORT=3000
+```
+3. To start the server locally
+```javascript
+npm start
+```
+4. To run the test cases
+```javascript
+npm test
+```
+
+**Nobel Prize APIs:**
+To search a Nobel Prize winner by name
+GET: <http://localhost:3000/searchbyfirstname/{fname}>
+
+To find out Nobel Prize winners in a year
+GET: <http://localhost:3000/searchbyyear/{year}>
+
+Search Nobel Prize winner based on the year and category
+Replace the year and category fields
+GET: <http://localhost:3000/search/?year=2018&category=physics>
+
+To retrieve all winners in alphabetical order along with year and category
+GET: <http://localhost:3000/showall>
+
+
+**I thank SummitMinds for this opportunity**
