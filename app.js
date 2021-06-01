@@ -67,6 +67,6 @@ app.get('/search/', (req, res) => {
   res.send(showData);
 });
 
-app.listen(PORT, () => {
+module.exports = app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

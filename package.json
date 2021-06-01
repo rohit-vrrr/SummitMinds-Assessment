@@ -4,7 +4,8 @@
   "description": "**Given JSON Dataset of Nobel Prize winners, create a program which will load the information from the JSON file (see the link below) and allow a user to:**\r 1. Search a Nobel prize winner by name",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,10 @@
     "fs": "0.0.1-security",
     "lodash": "^4.17.21",
     "nodemon": "^2.0.7"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.4.0"
   }
 }
