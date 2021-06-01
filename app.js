@@ -10,12 +10,22 @@ app.use(express.urlencoded({extended: true}));
 
 function searchByFirstName(data, fname) {
   var foundData = [];
-  data.prizes.forEach((eachprize) => {
-    eachprize.laureates.forEach((eachlaureates) => {
-      if(_.lowerCase(eachlaureates.firstname) === fname) {
-        foundData.push(eachlaureates);
+  data.prizes.forEach((eachPrize) => {
+    eachPrize.laureates.forEach((eachLaureates) => {
+      if(_.lowerCase(eachLaureates.firstname) === fname) {
+        foundData.push(eachLaureates);
       }
     })
+  });
+  return foundData;
+}
+
+function searchByYear(data, year) {
+  var foundData = [];
+  data.prizes.forEach((item) => {
+    if(item.year === year) {
+      foundData.push(item);
+    }
   });
   return foundData;
 }
@@ -27,6 +37,14 @@ app.get('/searchbyfirstname/:fname', (req, res) => {
   const showData = searchByFirstName(data, fname);
   res.send(showData);
 
+});
+
+app.get('/searchbyyear/:year', (req, res) => {
+
+  const year = req.params.year;
+
+  const showData = searchByYear(data, year);
+  res.send(showData);
 });
 
 app.listen(PORT, () => {
