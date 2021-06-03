@@ -22,12 +22,12 @@
 -   Document the instructions to run and execute the code.
 
 ## Instructions to run:
-**NPM Packages**
-***express***
-***dotenv***
-***lodash***
-***nodemon***
-***mocha***
+**NPM Packages:**<br />
+***express***<br />
+***dotenv***<br />
+***lodash***<br />
+***nodemon***<br />
+***mocha***<br />
 ***chai***
 
 **Steps:**
